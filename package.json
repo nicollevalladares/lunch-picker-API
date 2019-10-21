@@ -1,7 +1,7 @@
 {
   "name": "lunch-picker-api",
   "version": "1.0.0",
-  "description": "BackEnd for lunch picker website",
+  "description": "API for lunch picker website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/nicollevalladares/lunch-picker-API/issues"
   },
-  "homepage": "https://github.com/nicollevalladares/lunch-picker-API#readme"
+  "homepage": "https://github.com/nicollevalladares/lunch-picker-API#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-form-data": "^2.0.10",
+    "firebase-admin": "^8.6.1",
+    "firebaseauth": "^1.0.0"
+  }
 }
