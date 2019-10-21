@@ -7,7 +7,7 @@ var serviceAccount = require("./serviceAccountKey.json")
 const path = require('path')
 const cookieParser = require('cookie-parser')
 
-// var usersRouter = require('./routers/users-router')
+var usersRouter = require('./routers/users-router')
 
 var formidable = require('express-form-data')
 
@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 app.use(formidable.parse({keepExtensions:true}))
 app.use(express.static(path.join(__dirname, 'public')))
 
-// app.use("/users",usersRouter)
+app.use("/users",usersRouter)
 
 app.listen('3333', function () {
     console.log('Server successfully running at 3333 port',);
