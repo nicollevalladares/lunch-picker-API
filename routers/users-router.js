@@ -1,10 +1,10 @@
 var express = require('express')
 var router = express.Router()
 var admin = require('firebase-admin')
-// const FirebaseAuth = require('firebaseauth')
+const FirebaseAuth = require('firebaseauth')
 
 //Web API key
-// const api = new FirebaseAuth('AIzaSyCaYa2zEjUeXAopgDYqBePEnh3jR2Ti-hc')
+const Api = new FirebaseAuth('AIzaSyCaYa2zEjUeXAopgDYqBePEnh3jR2Ti-hc')
 
 //GET all users information (GET method)
 router.get('/', validateUser, (req,res) => {
@@ -51,7 +51,7 @@ router.get('/:id', validateUser, (req, res) => {
 })
 
 //Save a new user (POST method)
-router.post('/', validateUser, (req, res) => {
+router.post('/', (req, res) => {
     var usersReference = admin.database().ref('users')
 
     //data to save a user
@@ -69,6 +69,29 @@ router.post('/', validateUser, (req, res) => {
             }
             else{
                 res.status(200).json({message: 'User registered'})
+            }
+        })
+    } catch (error) {
+        res.status(400).json({message: 'Error: ' + error})
+    }
+})
+
+// Login with a user (POST method)
+router.post('/login', (req, res) => {
+    var email = req.body.email
+    var password = req.body.password
+
+    try {
+        Api.signInWithEmail(email, password, (err, result) => {
+            if (err) {
+                res.status(400).json({message:'Error: '+ err})
+            } else {
+                let userData = {
+                    token: result.token,
+                    email: result.user.email
+                }
+    
+                res.status(200).json({data: userData})
             }
         })
     } catch (error) {
