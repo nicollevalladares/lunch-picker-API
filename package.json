@@ -1,0 +1,19 @@
+{
+  "name": "lunch-picker-api",
+  "version": "1.0.0",
+  "description": "BackEnd for lunch picker website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicollevalladares/lunch-picker-API.git"
+  },
+  "author": "andrea nicolle valladares",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicollevalladares/lunch-picker-API/issues"
+  },
+  "homepage": "https://github.com/nicollevalladares/lunch-picker-API#readme"
+}
