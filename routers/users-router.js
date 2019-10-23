@@ -7,7 +7,7 @@ const FirebaseAuth = require('firebaseauth')
 const Api = new FirebaseAuth('AIzaSyCaYa2zEjUeXAopgDYqBePEnh3jR2Ti-hc')
 
 //GET all users information (GET method)
-router.get('/', validateUser, (req,res) => {
+router.get('/', (req,res) => {
     var usersReference = admin.database().ref('users')
 
     try{
@@ -58,8 +58,7 @@ router.post('/', (req, res) => {
     var data = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email,
-        password: req.body.password
+        uid: req.body.uid
     }
 
     try {
